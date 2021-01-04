@@ -1,0 +1,274 @@
+body {
+  background-color: #65abc9;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  opacity: 100%;
+  animation: bodyAppearance 2s;
+}
+
+@keyframes bodyAppearance {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.player {
+  position: absolute;
+  bottom: 30%;
+  margin-top: -30px;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  /* background-image: url(player.png); */ /* Image is assigned in Javascript */
+}
+
+.forest1 {
+  position: absolute;
+  bottom: 32%;
+  width: 100%;
+  height: 95px;
+  left: 0%;
+  background-image: url(forest.png);
+  z-index: -2;
+
+}
+
+.forest2 {
+  position: absolute;
+  bottom: 32%;
+  width: 100%;
+  height: 95px;
+  left: 100%;
+  background-image: url(forest.png);
+  z-index: -2;
+}
+
+.desert1 {
+  position: absolute;
+  bottom: 22%;
+  width: 100%;
+  height: 95px;
+  left: 0%;
+  background-image: url(desert.png);
+  z-index: -3;
+  box-shadow: 5px 10px 10px rgb(255, 209, 110);
+}
+
+.desert2 {
+  position: absolute;
+  bottom: 22%;
+  width: 100%;
+  height: 95px;
+  left: 100%;
+  background-image: url(desert.png);
+  z-index: -3;
+  box-shadow: 0px 10px 10px rgb(255, 209, 110);
+}
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font: sans-serif;
+}
+
+#heading {
+  font-family: 'Langar';
+  font-size: 40px;
+  text-shadow: 0px 0px 40px rgb(255, 255, 255), 0px 0px 2px rgb(0, 0, 0);
+}
+
+#inst {
+  bottom: 60%;
+  color: black;
+  text-shadow: 0px 0px 3px black;
+  font: bold 1.7em sans-serif;
+  text-align: center;
+}
+@keyframes instanim {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}
+
+#bullets {
+  font: bold 1em sans-serif;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 7px rgb(0, 0, 0), 0px 0px 1px rgb(0, 0, 0);
+  animation: pulse 0.7s infinite ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.obstacle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  bottom: 30%;
+  background: transparent;
+  background-image: url(obstacle.png);
+}
+
+.axe {
+  position: absolute;
+  width: 48px;
+  height: 44px;
+  bottom: 50%;
+  transform: scaleX(-1);
+  background: transparent;
+  background-image: url(Axe.png);
+}
+
+.celestial {
+  position: absolute;
+  width: 66px;
+  height: 61px;
+  bottom: 60%;
+  border-radius: 50%; /* a border radius of 50% means, the background will be a circle */
+  z-index: -2; /* z-index so that celestial is behind anything with over a z-index of -2 */
+  /* sun or moon is generated in the JS*/
+}
+
+.cloud {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  bottom: 75%;
+  background-image: url(cloud.png);
+  z-index: -1;
+}
+
+@keyframes rotation {
+  0% {
+    transform: scaleX(-1) rotate(0deg);
+  }
+  100% {
+    transform: scaleX(-1) rotate(360deg);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -300px;
+  }
+}
+
+/* Game over alert */
+#alert {
+  top: 50%;
+  justify-content: center;
+  font-family: 'Langar';
+  font-size: 40px;
+  text-shadow: 0px 0px 10px rgb(255, 255, 255), 0px 0px 2px rgb(0, 0, 0);
+  text-align: center;
+  color: rgb(255, 255, 255);
+  animation: pulse 0.7s infinite ease-in-out;
+  animation-direction: alternate;
+  visibility: hidden;
+  transition: all 3s linear;
+}
+
+/* A parent div controlling both score and highscore */
+.scores {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-family: 'Langar';
+  text-align: right;
+  width: 90%;
+  font-size: 50px;
+  opacity: 0%;
+  transition: opacity 1.5s linear;
+}
+
+#highScore {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+/* High Score game over animation */
+@keyframes gameOverHighScoreTransition {
+  0% {
+    font-size: 20px;
+  }
+  50% {
+    font-size: 10px;
+  }
+  51% {
+    font-size: 10px;
+  }
+  to {
+    font-size: 40px;
+    color: white;
+  }
+}
+
+/* Score game over animation */
+@keyframes gameOverScoreTransition {
+  0% {
+    top: 10%;
+    opacity: 100%;
+    text-align: right;
+  }
+  50% {
+    top: 10%;
+    opacity: 0%;
+    font-size: 20px;
+    text-align: right;
+  }
+  51% {
+    top: 30%;
+    opacity: 0%;
+    font-size: 10px;
+    text-align: center;
+  }
+  100% {
+    top: 30%;
+    opacity: 100%;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 5px white;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #heading {
+    font-size: 28px;
+  }
+
+  #inst {
+    font-size: 1.3em;
+  }
+
+  #bullets {
+    font-size: 0.8em;
+  }
+  #highScore {
+    font-size: 15px;
+  }
+
+  .scores {
+    font-size: 40px;
+  }
+}

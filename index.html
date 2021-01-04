@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" charset="utf-8" defer></script>
+    <title>Endless Runner</title>
+  </head>
+  
+  <body>
+        <h2 id="alert">Game Over! <br> Press Backspace to Restart!</h2>
+        <div class="grid">  
+            <h2 id="heading">ENDLESS RUNNER</h2>
+
+            <div id="menu" style="visibility: visible">
+            <div id="inst">Instructions</div>
+            <div id="bullets">
+                Avoid Obstacles<br />
+                Press Space to jump over obstacles
+                <br /><br /><br /><br />
+                Press Space to Begin!
+            </div>
+            </div>
+        </div>
+        <div><div class="player"></div></div>
+
+        <div class="deserts">
+            <div class="forest1"></div>
+            <div class="forest2"></div>
+            <div class="desert1"> </div>
+            <div class="desert2"> </div>
+        </div>
+        
+        <div class="scores">
+          <span id="score"></span>
+          <br>
+          <span id="highScore"></span>
+        </div>
+  </body>
+</html> 
